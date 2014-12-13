@@ -16,7 +16,8 @@ import fblldbobjecthelpers as objectHelpers
 
 def lldbcommands():
   return [
-    FBVisualizeCommand()
+    FBVisualizeCommand(),
+    FBVisualizeCvCommand()
   ]
 
 def _showImage(commandForImage):
@@ -102,6 +103,10 @@ def _dataIsString(data):
     else:
       return 0
 
+def _visualizecv(commandForImage):
+  imageFromMat = fb.evaluateObjectExpression('MatToUIImage(' + commandForImage + ')')
+  _showImage(imageFromMat)
+
 def _visualize(target):
   target = '(' + target + ')'
 
@@ -136,3 +141,17 @@ class FBVisualizeCommand(fb.FBCommand):
 
   def run(self, arguments, options):
     _visualize(arguments[0])
+
+class FBVisualizeCvCommand(fb.FBCommand):
+  def name(self):
+    return 'visualizecv'
+
+  def description(self):
+    return 'Open an OpenCV Mat in Preview.app on your Mac.'
+
+  def args(self):
+    return [ fb.FBCommandArgument(arg='target', type='(id)', help='The OpenCv Mat to visualize.') ]
+
+  def run(self, arguments, options):
+    _visualizecv(arguments[0])
+
