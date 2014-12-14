@@ -1,7 +1,7 @@
 # Chisel
 `Chisel` is a collection of `LLDB` commands to assist in the debugging of iOS apps.
 
-[[Installation](#installation) &bull; [Commands](#commands) &bull; [Custom Commands](#custom-commands) &bull; [Development Workflow](#development-workflow) [Contributing](#contributing) &bull; [License](#license)]
+[[Installation](#installation) &bull; [OpenCV and XCode](#opencv-and-xcode) &bull; [Commands](#commands) &bull; [Custom Commands](#custom-commands) &bull; [Development Workflow](#development-workflow) [Contributing](#contributing) &bull; [License](#license)]
 
 For a comprehensive overview of LLDB, and how Chisel compliments it, read Ari Grant's [Dancing in the Debugger — A Waltz with LLDB](http://www.objc.io/issue-19/lldb-debugging.html) in issue 19 of [objc.io](http://www.objc.io/).
 
@@ -24,6 +24,9 @@ command script import /path/to/fblldb.py
 ```
 
 The commands will be available the next time `Xcode` starts.
+
+## OpenCV and XCode
+Added support to display an OpenCV image during debugging in Xcode. See the visualizecv command under [Custom Commands](#custom-commands).
 
 ## Commands
 There are many commands; here's a few:
